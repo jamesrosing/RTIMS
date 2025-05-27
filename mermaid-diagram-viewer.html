@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTIMS - Mermaid Diagrams Viewer</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <style>
+        :root {
+            --starbucks-green: #00704A;
+            --light-green: #e8f5e9;
+            --warning-orange: #ff9800;
+            --error-red: #ff5252;
+            --success-green: #4caf50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: var(--starbucks-green);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .navigation {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-title {
+            color: var(--starbucks-green);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.8rem 1rem;
+            background: var(--light-green);
+            color: var(--starbucks-green);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: var(--starbucks-green);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .diagram-section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            color: var(--starbucks-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light-green);
+        }
+
+        .diagram-title {
+            color: #555;
+            font-size: 1.2rem;
+            margin: 1.5rem 0 1rem 0;
+            font-weight: 600;
+        }
+
+        .mermaid {
+            text-align: center;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: #fafafa;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .file-info {
+            background: var(--light-green);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            color: var(--starbucks-green);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            background: white;
+            margin-top: 2rem;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>RTIMS Mermaid Diagrams</h1>
+        <p>Real-Time Inventory Management System - Visual Documentation</p>
+    </div>
+
+    <div class="container">
+        <div class="navigation">
+            <div class="nav-title">Quick Navigation</div>
+            <div class="nav-links">
+                <a href="#system-architecture" class="nav-link">System Architecture</a>
+                <a href="#data-flow" class="nav-link">Data Flow Diagrams</a>
+                <a href="#api-specs" class="nav-link">API Specifications</a>
+                <a href="#prd-diagrams" class="nav-link">PRD Diagrams</a>
+                <a href="#examples" class="nav-link">Conversion Examples</a>
+            </div>
+        </div>
+
+        <!-- System Architecture Diagrams -->
+        <div id="system-architecture" class="diagram-section">
+            <h2 class="section-title">System Architecture</h2>
+            <div class="file-info">Source: System-Architecture.md</div>
+            
+            <h3 class="diagram-title">High-Level System Architecture</h3>
+            <div class="mermaid">
+graph TB
+    subgraph "Frontend Layer"
+        A[Store POS]
+        B[Mobile Apps]
+        C[Web Dashboard]
+    end
+    
+    subgraph "API Gateway"
+        D[Kong API Gateway]
+    end
+    
+    subgraph "Application Services"
+        E[Core Services<br/>Java/Spring Boot]
+        F[ML/AI Services<br/>Python/FastAPI]
+        G[Blockchain Node<br/>Hyperledger]
+    end
+    
+    subgraph "Data Layer"
+        H[(PostgreSQL<br/>Primary DB)]
+        I[(Redis<br/>Cache)]
+        J[(MongoDB<br/>Analytics)]
+    end
+    
+    subgraph "Infrastructure"
+        K[Kubernetes Cluster]
+        L[Monitoring & Logging]
+        M[CI/CD Pipeline]
+    end
+    
+    A & B & C --> D
+    D --> E & F & G
+    E --> H & I
+    F --> J
+    G --> H
+    
+    K --> E & F & G
+    L --> K
+    M --> K
+    
+    style D fill:#00704A,color:#fff
+    style E fill:#00704A,color:#fff
+    style F fill:#00704A,color:#fff
+    style G fill:#00704A,color:#fff
+            </div>
+
+            <h3 class="diagram-title">Microservices Architecture</h3>
+            <div class="mermaid">
+graph TB
+    subgraph "API Gateway Layer"
+        AG[Kong API Gateway<br/>Rate Limiting, Auth, Routing]
+    end
+    
+    subgraph "Core Services"
+        IS[Inventory Service<br/>Port: 8081]
+        TS[Transaction Service<br/>Port: 8082]
+        AS[Analytics Service<br/>Port: 8083]
+        NS[Notification Service<br/>Port: 8084]
+    end
+    
+    subgraph "Support Services"
+        AUS[Auth Service<br/>Port: 8085]
+        CS[Config Service<br/>Port: 8086]
+        DS[Discovery Service<br/>Port: 8087]
+    end
+    
+    subgraph "Data Stores"
+        PG[(PostgreSQL<br/>Primary Data)]
+        RD[(Redis<br/>Cache & Sessions)]
+        MG[(MongoDB<br/>Analytics Data)]
+    end
+    
+    AG --> IS & TS & AS & NS
+    IS & TS --> AUS
+    IS & TS & AS --> CS
+    IS & TS & AS & NS --> DS
+    
+    IS --> PG & RD
+    TS --> PG & RD
+    AS --> MG & RD
+    NS --> RD
+    
+    style AG fill:#00704A,color:#fff
+    style IS fill:#4caf50,color:#fff
+    style TS fill:#4caf50,color:#fff
+    style AS fill:#4caf50,color:#fff
+    style NS fill:#4caf50,color:#fff
+            </div>
+
+            <h3 class="diagram-title">Data Flow Architecture</h3>
+            <div class="mermaid">
+graph LR
+    subgraph "Data Sources"
+        POS[POS Systems]
+        MOB[Mobile Apps]
+        WEB[Web Dashboard]
+        EXT[External APIs]
+    end
+    
+    subgraph "Ingestion Layer"
+        API[API Gateway]
+        MQ[Message Queue<br/>RabbitMQ]
+    end
+    
+    subgraph "Processing Layer"
+        RT[Real-time Processing<br/>Apache Kafka]
+        BATCH[Batch Processing<br/>Apache Spark]
+        ML[ML Pipeline<br/>TensorFlow]
+    end
+    
+    subgraph "Storage Layer"
+        OLTP[(OLTP Database<br/>PostgreSQL)]
+        OLAP[(OLAP Database<br/>ClickHouse)]
+        CACHE[(Cache Layer<br/>Redis)]
+    end
+    
+    subgraph "Analytics Layer"
+        BI[Business Intelligence<br/>Tableau]
+        DASH[Real-time Dashboard]
+        ALERT[Alert System]
+    end
+    
+    POS & MOB & WEB --> API
+    EXT --> MQ
+    API --> RT
+    MQ --> BATCH
+    
+    RT --> OLTP & CACHE
+    BATCH --> OLAP
+    ML --> OLAP
+    
+    OLTP --> BI
+    OLAP --> BI
+    CACHE --> DASH
+    RT --> ALERT
+    
+    style API fill:#00704A,color:#fff
+    style RT fill:#00704A,color:#fff
+    style BATCH fill:#00704A,color:#fff
+            </div>
+
+            <h3 class="diagram-title">Security Architecture</h3>
+            <div class="mermaid">
+graph TB
+    subgraph "External Zone"
+        USER[Users]
+        EXT[External Systems]
+    end
+    
+    subgraph "DMZ"
+        WAF[Web Application Firewall]
+        LB[Load Balancer]
+    end
+    
+    subgraph "Application Zone"
+        AG[API Gateway<br/>OAuth 2.0 + JWT]
+        AUTH[Auth Service<br/>RBAC]
+        APPS[Application Services]
+    end
+    
+    subgraph "Data Zone"
+        DB[(Encrypted Database)]
+        VAULT[HashiCorp Vault<br/>Secrets Management]
+    end
+    
+    subgraph "Security Services"
+        SIEM[SIEM System]
+        IDS[Intrusion Detection]
+        AUDIT[Audit Logging]
+    end
+    
+    USER --> WAF
+    EXT --> WAF
+    WAF --> LB
+    LB --> AG
+    AG --> AUTH
+    AUTH --> APPS
+    APPS --> DB
+    APPS --> VAULT
+    
+    SIEM --> IDS & AUDIT
+    IDS --> AG & APPS
+    AUDIT --> DB
+    
+    style WAF fill:#ff5252,color:#fff
+    style AG fill:#00704A,color:#fff
+    style AUTH fill:#00704A,color:#fff
+    style VAULT fill:#ff9800,color:#fff
+            </div>
+
+            <h3 class="diagram-title">Deployment Architecture</h3>
+            <div class="mermaid">
+graph TB
+    subgraph "Production Environment"
+        subgraph "Kubernetes Cluster"
+            subgraph "Namespace: rtims-prod"
+                POD1[Inventory Service Pods]
+                POD2[Transaction Service Pods]
+                POD3[Analytics Service Pods]
+            end
+            
+            subgraph "Namespace: rtims-data"
+                DB[Database StatefulSet]
+                CACHE[Redis Cluster]
+            end
+            
+            subgraph "Namespace: rtims-infra"
+                INGRESS[Ingress Controller]
+                MONITOR[Monitoring Stack]
+            end
+        end
+    end
+    
+    subgraph "External Services"
+        CDN[CloudFlare CDN]
+        DNS[Route 53 DNS]
+        BACKUP[S3 Backup]
+    end
+    
+    CDN --> INGRESS
+    DNS --> CDN
+    POD1 & POD2 & POD3 --> DB & CACHE
+    MONITOR --> POD1 & POD2 & POD3
+    DB --> BACKUP
+    
+    style POD1 fill:#00704A,color:#fff
+    style POD2 fill:#00704A,color:#fff
+    style POD3 fill:#00704A,color:#fff
+    style INGRESS fill:#4caf50,color:#fff
+            </div>
+        </div>
+
+        <!-- Data Flow Diagrams -->
+        <div id="data-flow" class="diagram-section">
+            <h2 class="section-title">Data Flow Diagrams</h2>
+            <div class="file-info">Source: Data-Flow-Diagrams.md</div>
+            
+            <h3 class="diagram-title">Real-Time Transaction Flow</h3>
+            <div class="mermaid">
+sequenceDiagram
+    participant Customer
+    participant POS as Store POS
+    participant API as API Gateway
+    participant INV as Inventory Service
+    participant TXN as Transaction Service
+    participant DB as Database
+    participant CACHE as Redis Cache
+    
+    Customer->>POS: Purchase Item
+    POS->>POS: Scan QR Code
+    POS->>API: POST /api/v1/transactions
+    API->>TXN: Route Request
+    TXN->>INV: Check Inventory
+    INV->>CACHE: Get Stock Level
+    CACHE-->>INV: Current Stock: 45
+    INV-->>TXN: Stock Available
+    TXN->>DB: Create Transaction
+    DB-->>TXN: Transaction ID: TXN-001
+    TXN->>INV: Update Inventory
+    INV->>CACHE: Update Stock: 44
+    INV->>DB: Persist Stock Change
+    TXN-->>API: Success Response
+    API-->>POS: 200 OK + Receipt Data
+    POS-->>Customer: Print Receipt
+    
+    Note over POS,CACHE: Total Response Time: < 100ms
+            </div>
+
+            <h3 class="diagram-title">Inventory Update Flow</h3>
+            <div class="mermaid">
+graph TD
+    A[Inventory Change Event] --> B{Event Type}
+    
+    B -->|Sale| C[Decrease Stock]
+    B -->|Restock| D[Increase Stock]
+    B -->|Transfer| E[Multi-Store Update]
+    B -->|Adjustment| F[Manual Correction]
+    
+    C --> G[Update Cache]
+    D --> G
+    E --> G
+    F --> G
+    
+    G --> H[Persist to Database]
+    H --> I[Trigger Notifications]
+    
+    I --> J{Stock Level Check}
+    J -->|Low Stock| K[Alert Manager]
+    J -->|Normal| L[Update Dashboard]
+    J -->|Out of Stock| M[Critical Alert]
+    
+    K --> N[Send Notifications]
+    M --> N
+    L --> O[Real-time Updates]
+    
+    style A fill:#00704A,color:#fff
+    style G fill:#4caf50,color:#fff
+    style H fill:#4caf50,color:#fff
+    style K fill:#ff9800,color:#fff
+    style M fill:#ff5252,color:#fff
+            </div>
+
+            <h3 class="diagram-title">Analytics Data Pipeline</h3>
+            <div class="mermaid">
+graph LR
+    subgraph "Data Sources"
+        A[Transaction Events]
+        B[Inventory Changes]
+        C[User Actions]
+        D[System Metrics]
+    end
+    
+    subgraph "Stream Processing"
+        E[Apache Kafka]
+        F[Stream Processors]
+    end
+    
+    subgraph "Data Processing"
+        G[Real-time Analytics]
+        H[Batch Processing]
+        I[ML Feature Engineering]
+    end
+    
+    subgraph "Data Storage"
+        J[(Time Series DB)]
+        K[(Data Warehouse)]
+        L[(Feature Store)]
+    end
+    
+    subgraph "Analytics & ML"
+        M[Demand Forecasting]
+        N[Anomaly Detection]
+        O[Business Intelligence]
+    end
+    
+    A & B & C & D --> E
+    E --> F
+    F --> G & H & I
+    G --> J
+    H --> K
+    I --> L
+    J --> M & N
+    K --> O
+    L --> M & N
+    
+    style E fill:#00704A,color:#fff
+    style F fill:#00704A,color:#fff
+    style M fill:#4caf50,color:#fff
+    style N fill:#ff9800,color:#fff
+            </div>
+        </div>
+
+        <!-- API Specifications -->
+        <div id="api-specs" class="diagram-section">
+            <h2 class="section-title">API Specifications</h2>
+            <div class="file-info">Source: API-Specifications.md</div>
+            
+            <h3 class="diagram-title">API Gateway Architecture</h3>
+            <div class="mermaid">
+graph TB
+    subgraph "Client Applications"
+        A[Mobile App]
+        B[Web Dashboard]
+        C[POS System]
+        D[External Partners]
+    end
+    
+    subgraph "API Gateway (Kong)"
+        E[Authentication Plugin]
+        F[Rate Limiting Plugin]
+        G[Logging Plugin]
+        H[CORS Plugin]
+        I[Request/Response Transformer]
+    end
+    
+    subgraph "Backend Services"
+        J[Inventory Service<br/>:8081]
+        K[Transaction Service<br/>:8082]
+        L[Analytics Service<br/>:8083]
+        M[User Service<br/>:8084]
+        N[Notification Service<br/>:8085]
+    end
+    
+    A & B & C & D --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+    I --> J & K & L & M & N
+    
+    style E fill:#00704A,color:#fff
+    style F fill:#ff9800,color:#fff
+    style G fill:#4caf50,color:#fff
+            </div>
+
+            <h3 class="diagram-title">Authentication Flow</h3>
+            <div class="mermaid">
+sequenceDiagram
+    participant Client
+    participant Gateway as API Gateway
+    participant Auth as Auth Service
+    participant Service as Backend Service
+    participant DB as Database
+    
+    Client->>Gateway: Request with API Key
+    Gateway->>Auth: Validate API Key
+    Auth->>DB: Check Key & Permissions
+    DB-->>Auth: Key Valid + Roles
+    Auth-->>Gateway: JWT Token + Scopes
+    Gateway->>Gateway: Add JWT to Request
+    Gateway->>Service: Forward Request
+    Service->>Service: Validate JWT
+    Service-->>Gateway: Response
+    Gateway-->>Client: Response + Rate Limit Headers
+    
+    Note over Client,DB: All requests < 50ms latency
+            </div>
+
+            <h3 class="diagram-title">Error Handling Flow</h3>
+            <div class="mermaid">
+graph TD
+    A[API Request] --> B{Request Valid?}
+    
+    B -->|No| C[400 Bad Request]
+    B -->|Yes| D{Authenticated?}
+    
+    D -->|No| E[401 Unauthorized]
+    D -->|Yes| F{Authorized?}
+    
+    F -->|No| G[403 Forbidden]
+    F -->|Yes| H{Rate Limit OK?}
+    
+    H -->|No| I[429 Too Many Requests]
+    H -->|Yes| J[Process Request]
+    
+    J --> K{Service Available?}
+    K -->|No| L[503 Service Unavailable]
+    K -->|Yes| M{Request Successful?}
+    
+    M -->|No| N[500 Internal Server Error]
+    M -->|Yes| O[200 Success Response]
+    
+    C --> P[Error Response with Details]
+    E --> P
+    G --> P
+    I --> P
+    L --> P
+    N --> P
+    
+    style A fill:#00704A,color:#fff
+    style O fill:#4caf50,color:#fff
+    style P fill:#ff5252,color:#fff
+            </div>
+        </div>
+
+        <!-- PRD Diagrams -->
+        <div id="prd-diagrams" class="diagram-section">
+            <h2 class="section-title">PRD Diagrams</h2>
+            <div class="file-info">Source: PRD-Starbucks-RTIMS-2025-05-26.md</div>
+            
+            <h3 class="diagram-title">User Journey Flow</h3>
+            <div class="mermaid">
+journey
+    title Customer Purchase Journey
+    section Store Visit
+      Enter Store: 5: Customer
+      Browse Products: 4: Customer
+      Select Items: 5: Customer
+    section Purchase Process
+      Approach Counter: 5: Customer
+      Place Order: 5: Customer, Barista
+      Scan QR Code: 5: Barista
+      Process Payment: 4: Customer, Barista, RTIMS
+    section Fulfillment
+      Prepare Order: 5: Barista
+      Update Inventory: 5: RTIMS
+      Receive Order: 5: Customer
+      Generate Analytics: 3: RTIMS
+            </div>
+
+            <h3 class="diagram-title">System Integration Overview</h3>
+            <div class="mermaid">
+graph TB
+    subgraph "Starbucks Ecosystem"
+        A[Store POS Systems]
+        B[Mobile App]
+        C[Rewards Program]
+        D[Supply Chain]
+    end
+    
+    subgraph "RTIMS Core"
+        E[Real-Time Inventory Engine]
+        F[Transaction Processor]
+        G[Analytics Engine]
+        H[Notification System]
+    end
+    
+    subgraph "External Systems"
+        I[Payment Processors]
+        J[Supplier APIs]
+        K[Business Intelligence]
+        L[Corporate Dashboard]
+    end
+    
+    A --> E & F
+    B --> E & F
+    C --> F
+    D --> E
+    
+    E --> G & H
+    F --> G & H
+    
+    G --> K & L
+    H --> A & B
+    F --> I
+    E --> J
+    
+    style E fill:#00704A,color:#fff
+    style F fill:#00704A,color:#fff
+    style G fill:#4caf50,color:#fff
+    style H fill:#ff9800,color:#fff
+            </div>
+
+            <h3 class="diagram-title">Feature Roadmap Timeline</h3>
+            <div class="mermaid">
+gantt
+    title RTIMS Development Roadmap
+    dateFormat  YYYY-MM-DD
+    section Phase 1 - Core
+    Real-time Inventory    :done, p1-inv, 2025-01-01, 2025-02-15
+    Transaction Processing :done, p1-txn, 2025-01-15, 2025-03-01
+    Basic Analytics       :done, p1-ana, 2025-02-01, 2025-03-15
+    
+    section Phase 2 - Enhancement
+    Advanced Analytics    :active, p2-ana, 2025-03-01, 2025-04-15
+    ML Predictions       :p2-ml, 2025-03-15, 2025-05-01
+    Mobile Integration   :p2-mob, 2025-04-01, 2025-05-15
+    
+    section Phase 3 - Scale
+    Multi-Store Support  :p3-multi, 2025-05-01, 2025-06-15
+    Advanced Reporting   :p3-rep, 2025-05-15, 2025-07-01
+    API Ecosystem       :p3-api, 2025-06-01, 2025-07-15
+            </div>
+        </div>
+
+        <!-- Conversion Examples -->
+        <div id="examples" class="diagram-section">
+            <h2 class="section-title">Diagram Conversion Examples</h2>
+            <div class="file-info">Source: Diagram-Conversion-Examples.md</div>
+            
+            <h3 class="diagram-title">Mermaid Syntax Examples</h3>
+            <div class="mermaid">
+graph TD
+    A[Start] --> B{Decision}
+    B -->|Yes| C[Process]
+    B -->|No| D[End]
+    C --> E[Another Process]
+    E --> D
+    
+    style A fill:#00704A,color:#fff
+    style C fill:#4caf50,color:#fff
+    style E fill:#4caf50,color:#fff
+    style D fill:#ff5252,color:#fff
+            </div>
+
+            <h3 class="diagram-title">Sequence Diagram Example</h3>
+            <div class="mermaid">
+sequenceDiagram
+    participant Alice
+    participant Bob
+    participant Charlie
+    
+    Alice->>Bob: Hello Bob
+    Bob-->>Alice: Hello Alice
+    Bob->>Charlie: Hello Charlie
+    Charlie-->>Bob: Hello Bob
+    Charlie-->>Alice: Hello Alice
+            </div>
+
+            <h3 class="diagram-title">State Diagram Example</h3>
+            <div class="mermaid">
+stateDiagram-v2
+    [*] --> Idle
+    Idle --> Processing : Start Transaction
+    Processing --> Validating : Validate Data
+    Validating --> Processing : Invalid Data
+    Validating --> Completed : Valid Data
+    Completed --> [*]
+    Processing --> Error : System Error
+    Error --> [*]
+            </div>
+
+            <h3 class="diagram-title">Starbucks Brand Colors</h3>
+            <div class="mermaid">
+graph TD
+    A[Starbucks Green<br/>#00704A]
+    B[Success Green<br/>#4caf50]
+    C[Warning Orange<br/>#ff9800]
+    D[Error Red<br/>#ff5252]
+    E[Light Green<br/>#e8f5e9]
+    
+    style A fill:#00704A,color:#fff
+    style B fill:#4caf50,color:#fff
+    style C fill:#ff9800,color:#fff
+    style D fill:#ff5252,color:#fff
+    style E fill:#e8f5e9,color:#333
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>RTIMS - Real-Time Inventory Management System</strong></p>
+            <p>All diagrams use Starbucks brand colors and follow consistent styling guidelines.</p>
+            <p>Generated with Mermaid.js for optimal viewing and maintenance.</p>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Mermaid with Starbucks theme
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#00704A',
+                primaryTextColor: '#ffffff',
+                primaryBorderColor: '#004d33',
+                lineColor: '#00704A',
+                secondaryColor: '#e8f5e9',
+                tertiaryColor: '#f5f7fa',
+                background: '#ffffff',
+                mainBkg: '#ffffff',
+                secondBkg: '#e8f5e9',
+                tertiaryBkg: '#f5f7fa'
+            },
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true
+            },
+            sequence: {
+                useMaxWidth: true,
+                showSequenceNumbers: true
+            },
+            gantt: {
+                useMaxWidth: true,
+                leftPadding: 75
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading indicator
+        window.addEventListener('load', function() {
+            console.log('All Mermaid diagrams loaded successfully!');
+        });
+    </script>
+</body>
+</html> 

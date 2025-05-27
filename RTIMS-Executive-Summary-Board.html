@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTIMS Executive Summary - Board Presentation</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 0.5in;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.4;
+            color: #333;
+            background: white;
+            padding: 0.5in;
+            max-width: 8.5in;
+            margin: 0 auto;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #00704A;
+        }
+        
+        .logo {
+            color: #00704A;
+            font-size: 24pt;
+            font-weight: bold;
+        }
+        
+        .date {
+            color: #666;
+            font-size: 10pt;
+        }
+        
+        h1 {
+            color: #00704A;
+            font-size: 20pt;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 12pt;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .section {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #00704A;
+        }
+        
+        .section h2 {
+            color: #00704A;
+            font-size: 14pt;
+            margin-bottom: 8px;
+        }
+        
+        .metric-box {
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .metric-value {
+            color: #00704A;
+            font-size: 18pt;
+            font-weight: bold;
+        }
+        
+        .metric-label {
+            color: #666;
+            font-size: 9pt;
+        }
+        
+        .value-props {
+            margin: 15px 0;
+        }
+        
+        .value-prop-item {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            padding: 8px;
+            background: white;
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .value-amount {
+            color: #00704A;
+            font-weight: bold;
+            font-size: 14pt;
+            min-width: 80px;
+        }
+        
+        .value-desc {
+            flex: 1;
+            padding-left: 10px;
+            font-size: 10pt;
+        }
+        
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+        }
+        
+        .timeline-item {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .timeline-month {
+            color: #00704A;
+            font-weight: bold;
+            font-size: 10pt;
+        }
+        
+        .timeline-desc {
+            font-size: 8pt;
+            color: #666;
+        }
+        
+        .bottom-line {
+            background: #00704A;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .bottom-line h3 {
+            font-size: 16pt;
+            margin-bottom: 5px;
+        }
+        
+        .bottom-line p {
+            font-size: 11pt;
+            opacity: 0.9;
+        }
+        
+        .risk-section {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        
+        .risk-item {
+            flex: 1;
+            padding: 8px;
+            background: #fff3e0;
+            border-radius: 5px;
+            font-size: 9pt;
+            border: 1px solid #ff9800;
+        }
+        
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 8pt;
+            color: #999;
+        }
+        
+        @media print {
+            body {
+                padding: 0;
+            }
+            .section {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">STARBUCKS</div>
+        <div class="date">Board Presentation | May 2025</div>
+    </div>
+
+    <h1>Real-Time Inventory Management System (RTIMS)</h1>
+    <div class="subtitle">Transforming Supply Chain Operations with AI & Blockchain Technology</div>
+
+    <div class="two-column">
+        <div class="section">
+            <h2>The Problem</h2>
+            <p style="font-size: 10pt; margin-bottom: 10px;">Our current 72-hour inventory reporting cycle creates critical blind spots:</p>
+            <div class="metric-box">
+                <div class="metric-value">$50-75M</div>
+                <div class="metric-label">Annual revenue lost to stockouts</div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-value">2.5 days</div>
+                <div class="metric-label">Average stockout duration</div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-value">8-10%</div>
+                <div class="metric-label">Food waste from over-ordering</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>The Solution</h2>
+            <p style="font-size: 10pt; margin-bottom: 10px;">Real-time tracking with AI-driven intelligence:</p>
+            <div class="metric-box">
+                <div class="metric-value"><1 second</div>
+                <div class="metric-label">Inventory update latency</div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-value">>85%</div>
+                <div class="metric-label">Demand prediction accuracy</div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-value">100%</div>
+                <div class="metric-label">Supply chain transparency</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Financial Impact</h2>
+        <div class="value-props">
+            <div class="value-prop-item">
+                <div class="value-amount">$50-75M</div>
+                <div class="value-desc">Revenue recovery from eliminating stockout blind spots</div>
+            </div>
+            <div class="value-prop-item">
+                <div class="value-amount">$30-40M</div>
+                <div class="value-desc">Savings from AI-optimized inventory levels</div>
+            </div>
+            <div class="value-prop-item">
+                <div class="value-amount">$10-15M</div>
+                <div class="value-desc">Reduced shrinkage via blockchain transparency</div>
+            </div>
+            <div class="value-prop-item">
+                <div class="value-amount">$25-35M</div>
+                <div class="value-desc">Waste reduction savings (15-20% improvement)</div>
+            </div>
+            <div class="value-prop-item" style="background: #e8f5e9; border-color: #4caf50;">
+                <div class="value-amount">$400-600M</div>
+                <div class="value-desc">Additional revenue from 8-12% food sales growth</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="two-column">
+        <div class="section">
+            <h2>Implementation Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-month">M1-3</div>
+                    <div class="timeline-desc">Foundation</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-month">M4-6</div>
+                    <div class="timeline-desc">AI Pilot</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-month">M7-9</div>
+                    <div class="timeline-desc">Blockchain</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-month">M10-12</div>
+                    <div class="timeline-desc">Regional</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-month">M13-18</div>
+                    <div class="timeline-desc">National</div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 10px;">
+                <span style="color: #00704A; font-weight: bold; font-size: 14pt;">18-Month ROI</span><br>
+                <span style="font-size: 10pt;">Total Investment: $125M</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Strategic Advantages</h2>
+            <ul style="font-size: 10pt; padding-left: 20px;">
+                <li style="margin: 5px 0;"><strong>First-Mover:</strong> No competitor has real-time item tracking</li>
+                <li style="margin: 5px 0;"><strong>Data Moat:</strong> AI trained on our unique patterns</li>
+                <li style="margin: 5px 0;"><strong>Platform Play:</strong> Licensable technology opportunity</li>
+                <li style="margin: 5px 0;"><strong>ESG Impact:</strong> 5,000 tons less food waste annually</li>
+                <li style="margin: 5px 0;"><strong>Talent Magnet:</strong> Cutting-edge tech attracts top engineers</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Risk Mitigation</h2>
+        <div class="risk-section">
+            <div class="risk-item">
+                <strong>Technology:</strong> Phased rollout validates each component before scaling
+            </div>
+            <div class="risk-item">
+                <strong>Adoption:</strong> Backward compatibility maintains operations during transition
+            </div>
+            <div class="risk-item">
+                <strong>Financial:</strong> QR codes save 95% vs RFID ($0.02 vs $0.50/tag)
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-line">
+        <h3>Board Recommendation</h3>
+        <p>Approve $125M investment for 18-month RTIMS implementation, delivering $515-760M annual value and positioning Starbucks as the industry leader in supply chain innovation.</p>
+    </div>
+
+    <div class="footer">
+        Confidential - Starbucks Corporation © 2025
+    </div>
+</body>
+</html>
