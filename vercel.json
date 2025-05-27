@@ -1,0 +1,12 @@
+{
+  "public": true,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/RTIMS-CEO-Executive-Review.html",
+      "permanent": false
+    }
+  ]
+} 
